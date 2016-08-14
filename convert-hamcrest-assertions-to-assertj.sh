@@ -37,6 +37,10 @@ for EXPRESSION in \
 's/assertThat(\(.*\),.*is(nullValue()))/assertThat(\1).isNull()/g' \
 's/assertThat(\(.*\),.*is(false))/assertThat(\1).isFalse()/g' \
 's/assertThat(\(.*\),.*is(true))/assertThat(\1).isTrue()/g' \
+'s/assertThat(\(.*\),.*hasSize(\(.*\)))/assertThat(\1).hasSize(\2)/g' \
+'s/assertThat(\(.*\),.*hasSize(0))/assertThat(\1).isEmpty()/g' \
+'s/assertThat(\(.*\),.*empty())/assertThat(\1).isEmpty()/g' \
+'s/assertThat(\(.*\),.*hasItem(\(.*\))))/assertThat(\1).contains(\2)/g' \
 's/assertThat(\(.*\).size(),.*is(\(.*\)))/assertThat(\1).hasSize(\2)/g' \
 's/assertThat(\(.*\),.*is(not(equalTo(\(.*\)))))/assertThat(\1).isNotEqualTo(\2)/g' \
 's/assertThat(\(.*\),.*is(not(greaterThan(\(.*\)))))/assertThat(\1).isLessThanOrEqualTo(\2)/g' \
@@ -46,7 +50,6 @@ for EXPRESSION in \
 's/assertThat(\(.*\),.*is(\(.*\)))/assertThat(\1).isEqualTo(\2)/g' \
 's/assertThat(\(.*\),.*not(containsString(\(.*\))))/assertThat(\1).doesNotContain(\2)/g' \
 's/assertThat(\(.*\),.*containsString(\(.*\)))/assertThat(\1).contains(\2)/g' \
-'s/assertThat(\(.*\),[^a-zA-Z]*\(.*\))/assertThat(\1).is(matchedBy(\2))/g' \
 's/org\.junit\.Assert\.assertThat\;/org.assertj.core.api.Assertions.assertThat\;/g'
 do
     echo ""
